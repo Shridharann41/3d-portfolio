@@ -10,6 +10,5 @@ export {
     About,
     Projects,
     Contact,
-    Navbar
     
-}
+};

@@ -16,6 +16,8 @@ import { useFrame, useThree } from "@react-three/fiber";
 
 import islandScene from "../assets/3d/island.glb";
 
+
+
 export function Island({
   isRotating,
   setIsRotating,

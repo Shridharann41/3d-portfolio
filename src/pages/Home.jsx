@@ -1,4 +1,4 @@
-import {useState, useEffect,  Suspense} from 'react'
+import {useState, useEffect, useRef,  Suspense} from 'react'
 import  {Canvas}  from '@react-three/fiber'
 import Loader from '../components/Loader'
 import  {Island}  from '../models/Island';
@@ -10,7 +10,8 @@ import {Plane} from '../models/Plane';
       POPUP
       </div > */}
 const Home = () => {
-  const [isRotating, setIsRotating] = useState(false)
+  const [isRotating, setIsRotating] = useState(false);
+  const [currentStage, setCurrentStage] = useState(1);
    
   const adjustIslandForScreenSize = () => {
     let screenScale = null;
@@ -66,7 +67,7 @@ const Home = () => {
         <Bird/>
         
 
-        <Sky />
+        <Sky isRotating={isRotating} />
 
         <Island
         position = {islandPosition}
@@ -74,10 +75,11 @@ const Home = () => {
         rotation = {islandRotation}
         isRotating = {isRotating}
         setIsRotating = {setIsRotating}
+        setCurrentStage={setCurrentStage}
 
         />
         <Plane 
-        islandRotation={isRotating}
+        isRotating={isRotating}
         planeScale = {planeScale}
         planePosition = {planePosition}
         rotation = {[0, 20, 0]}
